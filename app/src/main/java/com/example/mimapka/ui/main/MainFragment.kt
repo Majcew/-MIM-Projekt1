@@ -54,7 +54,7 @@ class MainFragment : Fragment() {
             else -> ""
         }
     }
-    private val showToast= Observer<Boolean> {
-        Toast.makeText(context, "Nie udało się odnaleźć takiego miasta", Toast.LENGTH_SHORT).show()
+    private val showToast= Observer<Boolean?> { //pstryczek, który wyświetla odpowiedni toast dla nieudanych prób GET do API
+        if(viewModel.urlCode.value != null) Toast.makeText(context, "Nie udało się odnaleźć takiego miasta", Toast.LENGTH_SHORT).show()
     }
 }
